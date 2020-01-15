@@ -1,0 +1,48 @@
+Arduino: 1.8.10 (Windows 10), Placa:"NodeMCU 1.0 (ESP-12E Module), 80 MHz, Flash, Legacy (new can return nullptr), All SSL ciphers (most compatible), 4MB (FS:2MB OTA:~1019KB), 2, v2 Lower Memory, Disabled, None, Only Sketch, 115200"
+
+grow:19:32: error: invalid conversion from 'int' to 't_backlighPol' [-fpermissive]
+
+ LiquidCrystal_I2C lcd(0x27,16,2); 
+
+                                ^
+
+In file included from D:\ProjetoGrowCogumelo\grow\grow.ino:2:0:
+
+D:\Program Files\arduino-1.8.10\libraries\LiquidCrystal_I2C/LiquidCrystal_I2C.h:53:4: error:   initializing argument 3 of 'LiquidCrystal_I2C::LiquidCrystal_I2C(uint8_t, uint8_t, t_backlighPol)' [-fpermissive]
+
+    LiquidCrystal_I2C (uint8_t lcd_Addr, uint8_t backlighPin, t_backlighPol pol);
+
+    ^
+
+D:\ProjetoGrowCogumelo\grow\grow.ino: In function 'void setup()':
+
+grow:24:19: error: 'INTERNAL' was not declared in this scope
+
+   analogReference(INTERNAL);  // Muda a referência de 5V para 1,1V
+
+                   ^
+
+In file included from D:\ProjetoGrowCogumelo\grow\grow.ino:2:0:
+
+D:\Program Files\arduino-1.8.10\libraries\LiquidCrystal_I2C/LiquidCrystal_I2C.h:154:9: error: 'int LiquidCrystal_I2C::init()' is private
+
+    int  init();
+
+         ^
+
+grow:25:12: error: within this context
+
+   lcd.init();           
+
+            ^
+
+Foram encontradas múltiplas bibliotecas para "Wire.h"
+Usado: C:\Users\Amaro\AppData\Local\Arduino15\packages\esp8266\hardware\esp8266\2.6.3\libraries\Wire
+Foram encontradas múltiplas bibliotecas para "LiquidCrystal_I2C.h"
+Usado: D:\Program
+exit status 1
+invalid conversion from 'int' to 't_backlighPol' [-fpermissive]
+
+Este relatório teria mais informações com
+"Mostrar a saida detalhada durante a compilação"
+opção pode ser ativada em "Arquivo -> Preferências"
