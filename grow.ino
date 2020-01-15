@@ -1,45 +1,25 @@
-#include <Wire.h> 
-#include <LiquidCrystal_I2C.h>
-
-const int LM35 = 0; 
-float temp = 0; 
-int LM35_ADC = 0; 
-
-byte custom[8] = {
-  0b00111,          // Caractere customizado
-  0b00101,
-  0b00111,
-  0b00000,
-  0b00000,
-  0b00000,
-  0b00000,
-  0b00000
-};
-
-LiquidCrystal_I2C lcd(0x27,16,2); 
-
+#include <Wire.h>  //INCLUSÃO DE BIBLIOTECA
+#include <LiquidCrystal_I2C.h> //INCLUSÃO DE BIBLIOTECA
+ 
+LiquidCrystal_I2C lcd(0x27,2,1,0,4,5,6,7,3, POSITIVE); //FUNÇÃO DO TIPO "LiquidCrystal_I2C"
+ 
 void setup()
-{  
-  Serial.begin(9600);   
-  analogReference(INTERNAL);  // Muda a referência de 5V para 1,1V
-  lcd.init();           
-  lcd.backlight(); 
-  lcd.createChar(5, custom); // Cria nosso caractere definindo-o como o byte 5
-
-}  
-
-void loop()
-{   
-  LM35_ADC = analogRead(LM35);   // Lê o valor no pino A0
-  temp = LM35_ADC * 0.1075268817;    //Transforma o nº analógico para ºC
-  lcd.print("  Temp = ");
-  lcd.print(temp);   
-  lcd.print(" C"); 
-  lcd.home(); // Seta o cursor para o inicio caracter 0, na linha 0
-  lcd.print("->");  
-  lcd.setCursor(14,0); // Seta o cursor para o caracter 14, na linha 0
-  lcd.write(5); // Imprime o byte 5(nosso caracter custom)
-  delay(1000); 
-  lcd.clear(); //Limpa a tela do LCD
+{
+  //inicializa o display (16 colunas x 2 linhas)
+  lcd.begin (16,2); // ou 20,4 se for o display 20x4
 }
-  
+ 
+void loop(){
+    //acende o backlight do LCD
+    lcd.setBacklight(HIGH);
+    //posiciona o cursor para escrita
+    //.setCursor(coluna, linha)
+    lcd.setCursor(0,0);
+    lcd.print("FERNANDOK.COM");
+    lcd.setCursor(0,1);
+    lcd.print("ACESSE!!!");
+    delay(1000); //intervalo de 1s
+    //desliga o backlight do LCD
+    lcd.setBacklight(LOW);
+    delay(1000); //intervalo de 1s
+}

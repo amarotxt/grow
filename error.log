@@ -1,47 +1,103 @@
 Arduino: 1.8.10 (Windows 10), Placa:"NodeMCU 1.0 (ESP-12E Module), 80 MHz, Flash, Legacy (new can return nullptr), All SSL ciphers (most compatible), 4MB (FS:2MB OTA:~1019KB), 2, v2 Lower Memory, Disabled, None, Only Sketch, 115200"
 
-grow:19:32: error: invalid conversion from 'int' to 't_backlighPol' [-fpermissive]
+D:\Program Files\arduino-1.8.10\libraries\LiquidCrystal_I2C\SI2CIO.cpp:210:2: error: #error "ONLY SUPPORTED ON AVR PROCESSORS"
 
- LiquidCrystal_I2C lcd(0x27,16,2); 
+ #error "ONLY SUPPORTED ON AVR PROCESSORS"
 
-                                ^
+  ^
 
-In file included from D:\ProjetoGrowCogumelo\grow\grow.ino:2:0:
+In file included from D:\Program Files\arduino-1.8.10\libraries\LiquidCrystal_I2C\LiquidCrystal_SR1W.cpp:35:0:
 
-D:\Program Files\arduino-1.8.10\libraries\LiquidCrystal_I2C/LiquidCrystal_I2C.h:53:4: error:   initializing argument 3 of 'LiquidCrystal_I2C::LiquidCrystal_I2C(uint8_t, uint8_t, t_backlighPol)' [-fpermissive]
+D:\Program Files\arduino-1.8.10\libraries\LiquidCrystal_I2C\LiquidCrystal_SR1W.cpp: In member function 'uint8_t LiquidCrystal_SR1W::clearSR()':
 
-    LiquidCrystal_I2C (uint8_t lcd_Addr, uint8_t backlighPin, t_backlighPol pol);
+D:\Program Files\arduino-1.8.10\libraries\LiquidCrystal_I2C\LiquidCrystal_SR1W.cpp:77:24: error: invalid type argument of unary '*' (have 'fio_register {aka unsigned char}')
+
+  SR1W_ATOMIC_WRITE_LOW(srRegister, srMask);
+
+                        ^
+
+D:\Program Files\arduino-1.8.10\libraries\LiquidCrystal_I2C\LiquidCrystal_SR1W.h:293:79: note: in definition of macro 'SR1W_ATOMIC_WRITE_LOW'
+
+ #define SR1W_ATOMIC_WRITE_LOW(reg, mask) ATOMIC_BLOCK(ATOMIC_RESTORESTATE) { *reg &= ~mask; }
+
+                                                                               ^
+
+D:\Program Files\arduino-1.8.10\libraries\LiquidCrystal_I2C\LiquidCrystal_SR1W.cpp:86:22: error: invalid type argument of unary '*' (have 'fio_register {aka unsigned char}')
+
+   fio_bit reg_val = *srRegister;
+
+                      ^
+
+D:\Program Files\arduino-1.8.10\libraries\LiquidCrystal_I2C\LiquidCrystal_SR1W.cpp:95:5: error: invalid type argument of unary '*' (have 'fio_register {aka unsigned char}')
+
+    *srRegister = bit_high;
+
+     ^
+
+D:\Program Files\arduino-1.8.10\libraries\LiquidCrystal_I2C\LiquidCrystal_SR1W.cpp:96:5: error: invalid type argument of unary '*' (have 'fio_register {aka unsigned char}')
+
+    *srRegister = bit_low;
+
+     ^
+
+D:\Program Files\arduino-1.8.10\libraries\LiquidCrystal_I2C\LiquidCrystal_SR1W.cpp:101:4: error: invalid type argument of unary '*' (have 'fio_register {aka unsigned char}')
+
+   *srRegister = bit_high;
 
     ^
 
-D:\ProjetoGrowCogumelo\grow\grow.ino: In function 'void setup()':
+D:\Program Files\arduino-1.8.10\libraries\LiquidCrystal_I2C\LiquidCrystal_SR1W.cpp: In member function 'uint8_t LiquidCrystal_SR1W::loadSR(uint8_t)':
 
-grow:24:19: error: 'INTERNAL' was not declared in this scope
+D:\Program Files\arduino-1.8.10\libraries\LiquidCrystal_I2C\LiquidCrystal_SR1W.cpp:139:24: error: invalid type argument of unary '*' (have 'fio_register {aka unsigned char}')
 
-   analogReference(INTERNAL);  // Muda a referência de 5V para 1,1V
+     fio_bit reg_val = *srRegister;
 
-                   ^
+                        ^
 
-In file included from D:\ProjetoGrowCogumelo\grow\grow.ino:2:0:
+D:\Program Files\arduino-1.8.10\libraries\LiquidCrystal_I2C\LiquidCrystal_SR1W.cpp:144:6: error: invalid type argument of unary '*' (have 'fio_register {aka unsigned char}')
 
-D:\Program Files\arduino-1.8.10\libraries\LiquidCrystal_I2C/LiquidCrystal_I2C.h:154:9: error: 'int LiquidCrystal_I2C::init()' is private
+     *srRegister = bit_low;
 
-    int  init();
+      ^
 
-         ^
+D:\Program Files\arduino-1.8.10\libraries\LiquidCrystal_I2C\LiquidCrystal_SR1W.cpp:145:6: error: invalid type argument of unary '*' (have 'fio_register {aka unsigned char}')
 
-grow:25:12: error: within this context
+     *srRegister = bit_high;
 
-   lcd.init();           
+      ^
 
-            ^
+In file included from D:\Program Files\arduino-1.8.10\libraries\LiquidCrystal_I2C\LiquidCrystal_SR1W.cpp:35:0:
+
+D:\Program Files\arduino-1.8.10\libraries\LiquidCrystal_I2C\LiquidCrystal_SR1W.cpp:151:26: error: invalid type argument of unary '*' (have 'fio_register {aka unsigned char}')
+
+    SR1W_ATOMIC_WRITE_LOW(srRegister, srMask);
+
+                          ^
+
+D:\Program Files\arduino-1.8.10\libraries\LiquidCrystal_I2C\LiquidCrystal_SR1W.h:293:79: note: in definition of macro 'SR1W_ATOMIC_WRITE_LOW'
+
+ #define SR1W_ATOMIC_WRITE_LOW(reg, mask) ATOMIC_BLOCK(ATOMIC_RESTORESTATE) { *reg &= ~mask; }
+
+                                                                               ^
+
+D:\Program Files\arduino-1.8.10\libraries\LiquidCrystal_I2C\LiquidCrystal_SR1W.cpp:158:27: error: invalid type argument of unary '*' (have 'fio_register {aka unsigned char}')
+
+    SR1W_ATOMIC_WRITE_HIGH(srRegister, srMask);
+
+                           ^
+
+D:\Program Files\arduino-1.8.10\libraries\LiquidCrystal_I2C\LiquidCrystal_SR1W.h:294:80: note: in definition of macro 'SR1W_ATOMIC_WRITE_HIGH'
+
+ #define SR1W_ATOMIC_WRITE_HIGH(reg, mask) ATOMIC_BLOCK(ATOMIC_RESTORESTATE) { *reg |= mask; }
+
+                                                                                ^
 
 Foram encontradas múltiplas bibliotecas para "Wire.h"
 Usado: C:\Users\Amaro\AppData\Local\Arduino15\packages\esp8266\hardware\esp8266\2.6.3\libraries\Wire
 Foram encontradas múltiplas bibliotecas para "LiquidCrystal_I2C.h"
 Usado: D:\Program
 exit status 1
-invalid conversion from 'int' to 't_backlighPol' [-fpermissive]
+Erro compilando para a placa NodeMCU 1.0 (ESP-12E Module)
 
 Este relatório teria mais informações com
 "Mostrar a saida detalhada durante a compilação"
